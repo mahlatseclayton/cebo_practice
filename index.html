@@ -1,0 +1,1076 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>IT Paper 1 Study Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky index of learning units + single reading column; strict monochrome, hierarchy from rules and weight */
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #5c5c5c;
+  --rule: #dcdcdc;
+  --code-bg: #f4f4f4;
+  --strong: #000000;
+  --serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--sans); font-size: 16px; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px; padding-block: 48px 96px; }
+nav { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 32px); align-self: start; font-size: 14px; max-height: calc(100vh - 64px); overflow-y: auto; }
+nav .label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+nav ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+nav a { display: flex; gap: 10px; color: var(--muted); text-decoration: none; padding: 4px 0 4px 12px; border-left: 1px solid var(--rule); }
+nav a span { font-family: var(--mono); font-size: 11px; padding-top: 3px; min-width: 34px; }
+nav a:hover, nav a:focus-visible { color: var(--strong); border-left-color: var(--strong); outline: none; }
+main { min-width: 0; max-width: 720px; }
+header { border-bottom: 2px solid var(--strong); padding-bottom: 28px; margin-bottom: 8px; }
+.eyebrow { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; margin: 10px 0 14px; text-wrap: balance; color: var(--strong); }
+header p { color: var(--muted); margin: 0 0 18px; max-width: 60ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--strong); font-size: 14px; }
+.facts div { padding: 10px 16px; border-right: 1px solid var(--rule); flex: 1 1 140px; }
+.facts div:last-child { border-right: 0; }
+.facts small { display: block; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.facts strong { font-variant-numeric: tabular-nums; }
+section { padding-top: 48px; border-top: 1px solid var(--rule); margin-top: 48px; scroll-margin-top: 24px; }
+section:first-of-type { border-top: 0; margin-top: 16px; }
+.num { font-family: var(--mono); font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+h2 { font-family: var(--serif); font-weight: 600; font-size: 1.75rem; line-height: 1.2; margin: 4px 0 16px; text-wrap: balance; color: var(--strong); }
+h3 { font-size: 1rem; font-weight: 600; margin: 28px 0 8px; color: var(--strong); }
+p { margin: 0 0 14px; max-width: 65ch; }
+code { font-family: var(--mono); font-size: .88em; background: var(--code-bg); padding: 1px 5px; border-radius: 2px; }
+pre { font-family: var(--mono); font-size: 13.5px; line-height: 1.6; background: var(--code-bg); border-left: 2px solid var(--strong); padding: 16px 18px; margin: 12px 0 18px; overflow-x: auto; }
+pre code { background: none; padding: 0; font-size: inherit; }
+.c { color: var(--muted); font-style: italic; }
+.k { font-weight: 600; color: var(--strong); }
+.out { border-left: 2px dashed var(--muted); }
+.out::before { content: "OUTPUT"; display: block; font-size: 10px; letter-spacing: .14em; color: var(--muted); margin-bottom: 6px; }
+.tbl { overflow-x: auto; margin: 12px 0 18px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 8px 12px 8px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 500; border-bottom-color: var(--strong); }
+td code { white-space: nowrap; }
+.note { border: 1px solid var(--strong); padding: 14px 16px; margin: 16px 0; font-size: 15px; }
+.note b { display: block; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4px; }
+.weight { display: inline-block; border: 1px solid var(--strong); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 8px; margin-left: 8px; vertical-align: middle; font-family: var(--sans); font-weight: 500; }
+ul.plain { padding-left: 18px; margin: 0 0 14px; }
+ul.plain li { margin-bottom: 4px; }
+footer { margin-top: 64px; padding-top: 20px; border-top: 2px solid var(--strong); font-size: 13px; color: var(--muted); }
+@media (max-width: 860px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 24px; padding-block: 28px 64px; }
+  nav { position: static; max-height: none; border-bottom: 1px solid var(--rule); padding-bottom: 20px; }
+  nav ol { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+}
+</style>
+
+<div class="wrap">
+<nav aria-label="Contents">
+  <div class="label">Learning units</div>
+  <ol>
+    <li><a href="#start"><span>&ndash;</span>Program structure</a></li>
+    <li><a href="#lu2"><span>LU 2</span>Numbers, variables, I/O</a></li>
+    <li><a href="#lu3"><span>LU 3</span>Char, String, Math</a></li>
+    <li><a href="#lu5"><span>LU 5</span>For loops</a></li>
+    <li><a href="#lu6"><span>LU 6</span>Objects &amp; Random</a></li>
+    <li><a href="#lu7"><span>LU 7</span>If statements</a></li>
+    <li><a href="#lu8"><span>LU 8</span>Switch &amp; strings</a></li>
+    <li><a href="#lu9"><span>LU 9</span>While loops</a></li>
+    <li><a href="#lu10"><span>LU 10</span>Nested loops</a></li>
+    <li><a href="#lu11"><span>LU 11</span>Methods</a></li>
+    <li><a href="#lu12"><span>LU 12</span>SQL</a></li>
+    <li><a href="#practice"><span>&ndash;</span>Exam checklist</a></li>
+  </ol>
+</nav>
+
+<main>
+<header>
+  <div class="eyebrow">Information Technology &middot; Practical &middot; Java</div>
+  <h1>IT Paper 1 Study Guide</h1>
+  <p>Every learning unit in the scope, in order, with runnable Java and SQL examples, expected output, and the mistakes that cost marks.</p>
+  <div class="facts">
+    <div><small>Paper</small><strong>Paper I Practical</strong></div>
+    <div><small>Total</small><strong>100 marks</strong></div>
+    <div><small>Time</small><strong>150 min</strong></div>
+    <div><small>SQL share</small><strong>25%</strong></div>
+  </div>
+</header>
+
+<!-- START -->
+<section id="start">
+  <div class="num">BEFORE YOU START</div>
+  <h2>Program structure</h2>
+  <p>Every Java program lives inside a class, and runs from the <code>main</code> method. The file name must match the class name, so this goes in <code>Main.java</code>.</p>
+<pre><code><span class="k">import</span> java.util.Scanner;        <span class="c">// imports go at the very top</span>
+
+<span class="k">public class</span> Main {
+    <span class="k">public static void</span> main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+  <ul class="plain">
+    <li>Every statement ends with a semicolon <code>;</code></li>
+    <li>Blocks are wrapped in braces <code>{ }</code></li>
+    <li>Java is case sensitive: <code>String</code> is correct, <code>string</code> is an error.</li>
+    <li>Comments: <code>// one line</code> and <code>/* many lines */</code></li>
+  </ul>
+</section>
+
+<!-- LU 2 -->
+<section id="lu2">
+  <div class="num">LU 2</div>
+  <h2>Integer and real numbers, variables, input and output</h2>
+
+  <h3>Creating variables</h3>
+  <p>A variable is a named memory location. Declare the type first, then the name, then optionally a value.</p>
+<pre><code><span class="k">int</span> age = 16;               <span class="c">// whole number</span>
+<span class="k">double</span> price = 49.99;       <span class="c">// real number (decimal)</span>
+<span class="k">char</span> grade = 'A';           <span class="c">// single character, single quotes</span>
+<span class="k">boolean</span> passed = <span class="k">true</span>;      <span class="c">// true or false</span>
+String name = "Lerato";     <span class="c">// text, double quotes</span>
+
+<span class="k">int</span> x;                      <span class="c">// declare</span>
+x = 5;                      <span class="c">// assign</span>
+x = x + 1;                  <span class="c">// x is now 6</span>
+
+<span class="k">final double</span> VAT = 0.15;    <span class="c">// constant, cannot change</span></code></pre>
+
+  <div class="tbl"><table>
+    <tr><th>Type</th><th>Stores</th><th>Example</th></tr>
+    <tr><td><code>int</code></td><td>Whole numbers</td><td><code>int marks = 78;</code></td></tr>
+    <tr><td><code>long</code></td><td>Very large whole numbers</td><td><code>long id = 9001015009087L;</code></td></tr>
+    <tr><td><code>double</code></td><td>Real numbers, about 15 digits</td><td><code>double avg = 67.25;</code></td></tr>
+    <tr><td><code>float</code></td><td>Real numbers, less precise</td><td><code>float f = 3.5f;</code></td></tr>
+    <tr><td><code>char</code></td><td>One character</td><td><code>char c = 'Y';</code></td></tr>
+    <tr><td><code>boolean</code></td><td>true / false</td><td><code>boolean ok = false;</code></td></tr>
+    <tr><td><code>String</code></td><td>Text (a class, not a primitive)</td><td><code>String s = "IT";</code></td></tr>
+  </table></div>
+
+  <h3>Arithmetic</h3>
+<pre><code><span class="k">int</span> a = 17, b = 5;
+System.out.println(a + b);     <span class="c">// 22</span>
+System.out.println(a - b);     <span class="c">// 12</span>
+System.out.println(a * b);     <span class="c">// 85</span>
+System.out.println(a / b);     <span class="c">// 3   integer division drops the decimal</span>
+System.out.println(a % b);     <span class="c">// 2   remainder (modulus)</span>
+System.out.println(17.0 / 5);  <span class="c">// 3.4 one side is real, so the answer is real</span>
+
+<span class="k">int</span> c = 10;
+c += 5;    <span class="c">// c = c + 5  -&gt; 15</span>
+c -= 3;    <span class="c">// 12</span>
+c *= 2;    <span class="c">// 24</span>
+c++;       <span class="c">// 25</span>
+c--;       <span class="c">// 24</span></code></pre>
+  <div class="note"><b>Integer division</b><code>int / int</code> always gives an <code>int</code>. To get the average of whole numbers, cast first: <code>double avg = (double) total / count;</code></div>
+  <p>Using <code>%</code>: <code>n % 2 == 0</code> tests for even, <code>n % 10</code> gives the last digit, <code>n / 10</code> removes the last digit.</p>
+
+  <h3>Output</h3>
+<pre><code>System.out.println("Prints, then a new line");
+System.out.print("No new line. ");
+System.out.print("Same line\n");
+System.out.println("Name: " + name + "\tAge: " + age);   <span class="c">// \t is a tab</span></code></pre>
+
+  <h3>Input with Scanner</h3>
+<pre><code><span class="k">import</span> java.util.Scanner;
+
+<span class="k">public class</span> InputDemo {
+    <span class="k">public static void</span> main(String[] args) {
+        Scanner sc = <span class="k">new</span> Scanner(System.in);
+
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter your age: ");
+        <span class="k">int</span> age = sc.nextInt();
+
+        System.out.print("Enter your height in m: ");
+        <span class="k">double</span> height = sc.nextDouble();
+
+        System.out.println(name + " is " + age + " and " + height + " m tall.");
+    }
+}</code></pre>
+<pre class="out"><code>Enter your name: Lerato
+Enter your age: 16
+Enter your height in m: 1.62
+Lerato is 16 and 1.62 m tall.</code></pre>
+  <div class="tbl"><table>
+    <tr><th>Method</th><th>Reads</th></tr>
+    <tr><td><code>nextLine()</code></td><td>A full line, spaces included</td></tr>
+    <tr><td><code>next()</code></td><td>One word</td></tr>
+    <tr><td><code>nextInt()</code></td><td>An <code>int</code></td></tr>
+    <tr><td><code>nextDouble()</code></td><td>A <code>double</code></td></tr>
+    <tr><td><code>next().charAt(0)</code></td><td>A single <code>char</code></td></tr>
+  </table></div>
+  <div class="note"><b>The nextLine trap</b>After <code>nextInt()</code> or <code>nextDouble()</code>, the Enter key stays in the buffer, so the next <code>nextLine()</code> returns an empty string. Add an extra <code>sc.nextLine();</code> after reading a number, or read every value with <code>nextLine()</code> and parse it (see LU 3).</div>
+
+  <h3>Input with JOptionPane (if your school uses dialog boxes)</h3>
+<pre><code><span class="k">import</span> javax.swing.JOptionPane;
+
+String name = JOptionPane.showInputDialog("Enter your name:");
+<span class="k">int</span> age = Integer.parseInt(JOptionPane.showInputDialog("Enter your age:"));
+JOptionPane.showMessageDialog(<span class="k">null</span>, "Hello " + name);</code></pre>
+  <p><code>showInputDialog</code> always returns a <code>String</code>, so numbers must be parsed.</p>
+</section>
+
+<!-- LU 3 -->
+<section id="lu3">
+  <div class="num">LU 3</div>
+  <h2>Char, String and the Math class</h2>
+
+  <h3>Formatting output</h3>
+<pre><code><span class="k">double</span> total = 1234.5678;
+System.out.printf("Total: R%.2f%n", total);          <span class="c">// Total: R1234.57</span>
+System.out.printf("%-10s%5d%n", "Thabo", 82);         <span class="c">// left-aligned name, right-aligned mark</span>
+String s = String.format("%.1f", 67.25);             <span class="c">// "67.3" stored in a String</span>
+
+<span class="k">import</span> java.text.DecimalFormat;
+DecimalFormat df = <span class="k">new</span> DecimalFormat("0.00");
+System.out.println(df.format(3.14159));              <span class="c">// 3.14</span>
+DecimalFormat money = <span class="k">new</span> DecimalFormat("R #,##0.00");
+System.out.println(money.format(15250.5));           <span class="c">// R 15,250.50</span></code></pre>
+  <div class="tbl"><table>
+    <tr><th>Specifier</th><th>Meaning</th></tr>
+    <tr><td><code>%d</code></td><td>Integer</td></tr>
+    <tr><td><code>%.2f</code></td><td>Real, 2 decimal places</td></tr>
+    <tr><td><code>%s</code></td><td>String</td></tr>
+    <tr><td><code>%c</code></td><td>Char</td></tr>
+    <tr><td><code>%10s</code> / <code>%-10s</code></td><td>Width 10, right / left aligned</td></tr>
+    <tr><td><code>%n</code></td><td>New line</td></tr>
+  </table></div>
+
+  <h3>Typecasting</h3>
+<pre><code><span class="k">int</span> i = 7;
+<span class="k">double</span> d = i;             <span class="c">// widening, automatic: 7.0</span>
+<span class="k">double</span> e = 9.87;
+<span class="k">int</span> j = (<span class="k">int</span>) e;           <span class="c">// narrowing, manual: 9 (truncates, does not round)</span>
+
+<span class="k">char</span> ch = 'A';
+<span class="k">int</span> code = (<span class="k">int</span>) ch;       <span class="c">// 65  (ASCII value)</span>
+<span class="k">char</span> next = (<span class="k">char</span>) (ch + 1); <span class="c">// 'B'</span>
+
+<span class="k">char</span> digit = '7';
+<span class="k">int</span> value = digit - '0';    <span class="c">// 7  (char digit to int)</span></code></pre>
+
+  <h3>Converting with parse</h3>
+<pre><code><span class="k">int</span> n = Integer.parseInt("123");          <span class="c">// String to int</span>
+<span class="k">double</span> r = Double.parseDouble("45.6");    <span class="c">// String to double</span>
+String a = String.valueOf(250);            <span class="c">// int to String</span>
+String b = "" + 3.5;                       <span class="c">// quick number to String</span>
+String c = Integer.toString(99);           <span class="c">// int to String</span>
+
+<span class="c">// Safe input pattern: read a line, then parse</span>
+<span class="k">int</span> age = Integer.parseInt(sc.nextLine());</code></pre>
+  <p><code>Integer.parseInt("12a")</code> crashes with a <code>NumberFormatException</code>. Only parse text that contains a valid number.</p>
+
+  <h3>Char methods</h3>
+<pre><code><span class="k">char</span> c = 'g';
+Character.isLetter(c);       <span class="c">// true</span>
+Character.isDigit('5');      <span class="c">// true</span>
+Character.isUpperCase(c);    <span class="c">// false</span>
+Character.isLowerCase(c);    <span class="c">// true</span>
+Character.isWhitespace(' '); <span class="c">// true</span>
+Character.toUpperCase(c);    <span class="c">// 'G'</span>
+Character.toLowerCase('Q');  <span class="c">// 'q'</span></code></pre>
+
+  <h3>String methods</h3>
+<pre><code>String s = "Hello World";      <span class="c">// index: H=0 e=1 l=2 l=3 o=4 ' '=5 W=6 ...</span>
+
+s.length();                    <span class="c">// 11</span>
+s.charAt(0);                   <span class="c">// 'H'</span>
+s.charAt(s.length() - 1);      <span class="c">// 'd'  (last character)</span>
+s.indexOf('o');                <span class="c">// 4   (first match)</span>
+s.lastIndexOf('o');            <span class="c">// 7</span>
+s.indexOf("World");            <span class="c">// 6   (-1 if not found)</span>
+s.substring(6);                <span class="c">// "World"</span>
+s.substring(0, 5);             <span class="c">// "Hello" (end index NOT included)</span>
+s.toUpperCase();               <span class="c">// "HELLO WORLD"</span>
+s.toLowerCase();               <span class="c">// "hello world"</span>
+s.replace('l', 'L');           <span class="c">// "HeLLo WorLd"</span>
+s.contains("lo W");            <span class="c">// true</span>
+s.startsWith("He");            <span class="c">// true</span>
+s.endsWith("ld");              <span class="c">// true</span>
+"  hi  ".trim();               <span class="c">// "hi"</span>
+s.isEmpty();                   <span class="c">// false</span>
+s.split(" ");                  <span class="c">// ["Hello", "World"]</span>
+s.concat("!");                 <span class="c">// "Hello World!"</span></code></pre>
+  <p>Strings never change. <code>s.toUpperCase()</code> returns a new string, so save it: <code>s = s.toUpperCase();</code></p>
+
+  <h3>The Math class</h3>
+<pre><code>Math.pow(2, 3);        <span class="c">// 8.0   2 to the power 3</span>
+Math.sqrt(25);         <span class="c">// 5.0</span>
+Math.abs(-7);          <span class="c">// 7</span>
+Math.round(4.5);       <span class="c">// 5    (returns long)</span>
+Math.round(4.4);       <span class="c">// 4</span>
+Math.ceil(4.1);        <span class="c">// 5.0  always up</span>
+Math.floor(4.9);       <span class="c">// 4.0  always down</span>
+Math.max(8, 3);        <span class="c">// 8</span>
+Math.min(8, 3);        <span class="c">// 3</span>
+Math.PI;               <span class="c">// 3.141592653589793</span>
+Math.random();         <span class="c">// random double from 0.0 up to (not including) 1.0</span>
+
+<span class="c">// Round to 2 decimal places</span>
+<span class="k">double</span> v = Math.round(3.14159 * 100) / 100.0;   <span class="c">// 3.14</span>
+
+<span class="c">// Area of a circle and hypotenuse</span>
+<span class="k">double</span> area = Math.PI * Math.pow(r, 2);
+<span class="k">double</span> hyp = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));</code></pre>
+</section>
+
+<!-- LU 5 -->
+<section id="lu5">
+  <div class="num">LU 5</div>
+  <h2>For loops</h2>
+  <p>Use a <code>for</code> loop when you know how many times to repeat.</p>
+<pre><code><span class="c">// for (start; condition; update)</span>
+<span class="k">for</span> (<span class="k">int</span> i = 1; i &lt;= 5; i++) {
+    System.out.print(i + " ");         <span class="c">// 1 2 3 4 5</span>
+}
+
+<span class="k">for</span> (<span class="k">int</span> i = 10; i &gt;= 0; i -= 2) {
+    System.out.print(i + " ");         <span class="c">// 10 8 6 4 2 0</span>
+}</code></pre>
+  <h3>Common for-loop patterns</h3>
+<pre><code><span class="c">// Total and average of n marks</span>
+System.out.print("How many learners? ");
+<span class="k">int</span> n = sc.nextInt();
+<span class="k">int</span> total = 0;
+<span class="k">for</span> (<span class="k">int</span> i = 1; i &lt;= n; i++) {
+    System.out.print("Mark " + i + ": ");
+    total += sc.nextInt();
+}
+System.out.printf("Average: %.2f%n", (<span class="k">double</span>) total / n);
+
+<span class="c">// Times table</span>
+<span class="k">for</span> (<span class="k">int</span> i = 1; i &lt;= 12; i++) {
+    System.out.println(i + " x 7 = " + (i * 7));
+}
+
+<span class="c">// Loop through every character of a String</span>
+String word = "Programming";
+<span class="k">int</span> vowels = 0;
+<span class="k">for</span> (<span class="k">int</span> i = 0; i &lt; word.length(); i++) {
+    <span class="k">char</span> ch = Character.toLowerCase(word.charAt(i));
+    <span class="k">if</span> ("aeiou".indexOf(ch) != -1) vowels++;
+}
+System.out.println("Vowels: " + vowels);    <span class="c">// 3</span>
+
+<span class="c">// Reverse a String</span>
+String rev = "";
+<span class="k">for</span> (<span class="k">int</span> i = word.length() - 1; i &gt;= 0; i--) {
+    rev += word.charAt(i);
+}
+
+<span class="c">// Find the largest of n numbers</span>
+<span class="k">int</span> max = Integer.MIN_VALUE;
+<span class="k">for</span> (<span class="k">int</span> i = 0; i &lt; 5; i++) {
+    <span class="k">int</span> num = sc.nextInt();
+    <span class="k">if</span> (num &gt; max) max = num;
+}</code></pre>
+  <div class="note"><b>Off by one</b>String indexes run from <code>0</code> to <code>length() - 1</code>. Use <code>i &lt; word.length()</code>, not <code>&lt;=</code>, or you get a <code>StringIndexOutOfBoundsException</code>.</div>
+</section>
+
+<!-- LU 6 -->
+<section id="lu6">
+  <div class="num">LU 6</div>
+  <h2>Objects, random numbers and method overloading</h2>
+
+  <h3>Classes and instantiating an object</h3>
+  <p>A <b>class</b> is a blueprint. An <b>object</b> is one instance built from it with the keyword <code>new</code>. Fields store what the object knows; methods are what it can do.</p>
+<pre><code><span class="k">public class</span> Learner {
+    <span class="c">// Fields (attributes)</span>
+    <span class="k">private</span> String name;
+    <span class="k">private int</span> grade;
+    <span class="k">private double</span> mark;
+
+    <span class="c">// Constructor: same name as the class, no return type</span>
+    <span class="k">public</span> Learner(String name, <span class="k">int</span> grade, <span class="k">double</span> mark) {
+        <span class="k">this</span>.name = name;
+        <span class="k">this</span>.grade = grade;
+        <span class="k">this</span>.mark = mark;
+    }
+
+    <span class="c">// Getters (accessors) and a setter (mutator)</span>
+    <span class="k">public</span> String getName()  { <span class="k">return</span> name; }
+    <span class="k">public double</span> getMark()  { <span class="k">return</span> mark; }
+    <span class="k">public void</span> setMark(<span class="k">double</span> mark) { <span class="k">this</span>.mark = mark; }
+
+    <span class="k">public boolean</span> hasPassed() { <span class="k">return</span> mark &gt;= 50; }
+
+    <span class="k">public</span> String toString() {
+        <span class="k">return</span> name + " (Gr " + grade + "): " + mark + "%";
+    }
+}</code></pre>
+<pre><code><span class="k">public class</span> Main {
+    <span class="k">public static void</span> main(String[] args) {
+        Learner l1 = <span class="k">new</span> Learner("Naledi", 11, 72.5);   <span class="c">// instantiate</span>
+        Learner l2 = <span class="k">new</span> Learner("Kabelo", 11, 44.0);
+
+        System.out.println(l1);                  <span class="c">// calls toString()</span>
+        System.out.println(l2.getName() + " passed: " + l2.hasPassed());
+        l2.setMark(55);
+        System.out.println(l2);
+    }
+}</code></pre>
+<pre class="out"><code>Naledi (Gr 11): 72.5%
+Kabelo passed: false
+Kabelo (Gr 11): 55.0%</code></pre>
+  <ul class="plain">
+    <li><code>private</code> fields can only be used inside the class. Outside code uses the getters and setters.</li>
+    <li><code>this.name</code> means the object's field; <code>name</code> alone means the parameter.</li>
+    <li>Scanner, Random and DecimalFormat are also objects you instantiate with <code>new</code>.</li>
+  </ul>
+
+  <h3>Creating random numbers</h3>
+<pre><code><span class="k">import</span> java.util.Random;
+
+Random rand = <span class="k">new</span> Random();             <span class="c">// instantiate a Random object</span>
+<span class="k">int</span> a = rand.nextInt(10);               <span class="c">// 0 to 9</span>
+<span class="k">int</span> dice = rand.nextInt(6) + 1;         <span class="c">// 1 to 6</span>
+<span class="k">int</span> b = rand.nextInt(51) + 50;          <span class="c">// 50 to 100</span>
+<span class="k">double</span> d = rand.nextDouble();           <span class="c">// 0.0 to just under 1.0</span>
+<span class="k">boolean</span> coin = rand.nextBoolean();
+
+<span class="c">// Using Math.random() instead</span>
+<span class="k">int</span> c = (<span class="k">int</span>) (Math.random() * 6) + 1;  <span class="c">// 1 to 6</span></code></pre>
+  <div class="note"><b>Range formula</b>A random whole number from <code>low</code> to <code>high</code> inclusive: <code>rand.nextInt(high - low + 1) + low</code>, or <code>(int)(Math.random() * (high - low + 1)) + low</code>.</div>
+
+  <h3>Method overloading</h3>
+  <p>Two or more methods with the same name but different parameter lists (different number, types or order). Java picks the one that matches the arguments. Return type alone does not count.</p>
+<pre><code><span class="k">public class</span> Calculator {
+    <span class="k">public static int</span> add(<span class="k">int</span> a, <span class="k">int</span> b)             { <span class="k">return</span> a + b; }
+    <span class="k">public static int</span> add(<span class="k">int</span> a, <span class="k">int</span> b, <span class="k">int</span> c)      { <span class="k">return</span> a + b + c; }
+    <span class="k">public static double</span> add(<span class="k">double</span> a, <span class="k">double</span> b)    { <span class="k">return</span> a + b; }
+
+    <span class="k">public static void</span> main(String[] args) {
+        System.out.println(add(2, 3));        <span class="c">// 5</span>
+        System.out.println(add(2, 3, 4));     <span class="c">// 9</span>
+        System.out.println(add(2.5, 1.5));    <span class="c">// 4.0</span>
+    }
+}</code></pre>
+  <p>Constructors can be overloaded too:</p>
+<pre><code><span class="k">public</span> Learner(String name) {              <span class="c">// only a name supplied</span>
+    <span class="k">this</span>(name, 10, 0);                     <span class="c">// calls the 3-parameter constructor</span>
+}</code></pre>
+</section>
+
+<!-- LU 7 -->
+<section id="lu7">
+  <div class="num">LU 7</div>
+  <h2>If statements</h2>
+
+  <h3>Relational operators</h3>
+  <div class="tbl"><table>
+    <tr><th>Operator</th><th>Meaning</th><th>Example (x = 7)</th></tr>
+    <tr><td><code>==</code></td><td>Equal to</td><td><code>x == 7</code> true</td></tr>
+    <tr><td><code>!=</code></td><td>Not equal to</td><td><code>x != 7</code> false</td></tr>
+    <tr><td><code>&gt;</code></td><td>Greater than</td><td><code>x &gt; 5</code> true</td></tr>
+    <tr><td><code>&lt;</code></td><td>Less than</td><td><code>x &lt; 5</code> false</td></tr>
+    <tr><td><code>&gt;=</code></td><td>Greater than or equal</td><td><code>x &gt;= 7</code> true</td></tr>
+    <tr><td><code>&lt;=</code></td><td>Less than or equal</td><td><code>x &lt;= 6</code> false</td></tr>
+  </table></div>
+
+  <h3>Logical operators</h3>
+  <div class="tbl"><table>
+    <tr><th>Operator</th><th>Name</th><th>True when</th></tr>
+    <tr><td><code>&amp;&amp;</code></td><td>AND</td><td>Both conditions are true</td></tr>
+    <tr><td><code>||</code></td><td>OR</td><td>At least one condition is true</td></tr>
+    <tr><td><code>!</code></td><td>NOT</td><td>Flips true to false and back</td></tr>
+  </table></div>
+
+  <h3>Structure</h3>
+<pre><code><span class="k">if</span> (condition) {
+    <span class="c">// runs when true</span>
+}
+
+<span class="k">if</span> (mark &gt;= 50) {
+    System.out.println("Pass");
+} <span class="k">else</span> {
+    System.out.println("Fail");
+}
+
+<span class="c">// if / else if chain: first true condition wins</span>
+<span class="k">if</span> (mark &gt;= 80) {
+    level = 7;
+} <span class="k">else if</span> (mark &gt;= 70) {
+    level = 6;
+} <span class="k">else if</span> (mark &gt;= 60) {
+    level = 5;
+} <span class="k">else if</span> (mark &gt;= 50) {
+    level = 4;
+} <span class="k">else if</span> (mark &gt;= 40) {
+    level = 3;
+} <span class="k">else if</span> (mark &gt;= 30) {
+    level = 2;
+} <span class="k">else</span> {
+    level = 1;
+}</code></pre>
+
+  <h3>Compound conditions</h3>
+<pre><code><span class="k">if</span> (age &gt;= 13 &amp;&amp; age &lt;= 19)  System.out.println("Teenager");
+<span class="k">if</span> (day == 6 || day == 7)       System.out.println("Weekend");
+<span class="k">if</span> (!(mark &lt; 50))              System.out.println("Pass");
+
+<span class="c">// Leap year</span>
+<span class="k">if</span> ((year % 4 == 0 &amp;&amp; year % 100 != 0) || year % 400 == 0) {
+    System.out.println(year + " is a leap year");
+}</code></pre>
+
+  <h3>Nested if</h3>
+  <p>An <code>if</code> inside another <code>if</code>. The inner one is only checked when the outer one is true.</p>
+<pre><code><span class="k">if</span> (age &gt;= 18) {
+    <span class="k">if</span> (hasLicence) {
+        System.out.println("You may drive.");
+    } <span class="k">else</span> {
+        System.out.println("Get a licence first.");
+    }
+} <span class="k">else</span> {
+    System.out.println("Too young to drive.");
+}</code></pre>
+
+  <h3>Ternary operator</h3>
+<pre><code>String result = (mark &gt;= 50) ? "Pass" : "Fail";</code></pre>
+  <div class="note"><b>= vs ==</b><code>=</code> assigns, <code>==</code> compares. And never compare Strings with <code>==</code>; use <code>.equals()</code> (LU 8).</div>
+</section>
+
+<!-- LU 8 -->
+<section id="lu8">
+  <div class="num">LU 8</div>
+  <h2>Switch statements and comparing strings</h2>
+
+  <h3>Comparing strings</h3>
+<pre><code>String a = "Yes";
+a.equals("Yes");               <span class="c">// true   content is the same</span>
+a.equals("yes");               <span class="c">// false  case matters</span>
+a.equalsIgnoreCase("YES");     <span class="c">// true</span>
+a.compareTo("No");             <span class="c">// positive: "Yes" comes after "No" alphabetically</span>
+"Apple".compareTo("Banana");   <span class="c">// negative: Apple comes first</span>
+"cat".compareTo("cat");        <span class="c">// 0: equal</span>
+a.compareToIgnoreCase("yes");  <span class="c">// 0</span></code></pre>
+  <div class="note"><b>Why not ==</b>For Strings, <code>==</code> checks whether two variables point to the same object in memory, not whether the text matches. It can give the wrong answer with input from Scanner. Always use <code>.equals()</code>.</div>
+
+  <h3>Switch statement</h3>
+  <p>Compares one variable against fixed values. Works with <code>int</code>, <code>char</code> and <code>String</code> (not <code>double</code> or <code>boolean</code>).</p>
+<pre><code><span class="k">int</span> day = sc.nextInt();
+<span class="k">switch</span> (day) {
+    <span class="k">case</span> 1:
+        System.out.println("Monday");
+        <span class="k">break</span>;
+    <span class="k">case</span> 2:
+        System.out.println("Tuesday");
+        <span class="k">break</span>;
+    <span class="k">case</span> 6:
+    <span class="k">case</span> 7:                                  <span class="c">// two cases share one block</span>
+        System.out.println("Weekend");
+        <span class="k">break</span>;
+    <span class="k">default</span>:                                <span class="c">// no case matched</span>
+        System.out.println("Invalid day");
+}</code></pre>
+  <ul class="plain">
+    <li><code>break</code> exits the switch. Without it, execution falls through into the next case.</li>
+    <li><code>default</code> runs when nothing matches. It is optional but expected in exams.</li>
+    <li>Case values must be constants, not ranges. For <code>mark &gt;= 50</code> use an <code>if</code>.</li>
+  </ul>
+
+  <h3>Switch on a String or char</h3>
+<pre><code>System.out.print("Enter a province code: ");
+String code = sc.nextLine().toUpperCase();     <span class="c">// make input case-insensitive</span>
+<span class="k">switch</span> (code) {
+    <span class="k">case</span> "GP": System.out.println("Gauteng"); <span class="k">break</span>;
+    <span class="k">case</span> "WC": System.out.println("Western Cape"); <span class="k">break</span>;
+    <span class="k">case</span> "KZN": System.out.println("KwaZulu-Natal"); <span class="k">break</span>;
+    <span class="k">default</span>: System.out.println("Unknown");
+}
+
+<span class="k">char</span> op = sc.next().charAt(0);
+<span class="k">switch</span> (op) {
+    <span class="k">case</span> '+': System.out.println(a + b); <span class="k">break</span>;
+    <span class="k">case</span> '-': System.out.println(a - b); <span class="k">break</span>;
+    <span class="k">case</span> '*': System.out.println(a * b); <span class="k">break</span>;
+    <span class="k">case</span> '/': System.out.println((<span class="k">double</span>) a / b); <span class="k">break</span>;
+    <span class="k">default</span>: System.out.println("Invalid operator");
+}</code></pre>
+
+  <h3>Arrow form (Java 14+)</h3>
+<pre><code>String type = <span class="k">switch</span> (day) {
+    <span class="k">case</span> 6, 7 -&gt; "Weekend";
+    <span class="k">default</span> -&gt; "Weekday";
+};   <span class="c">// no break needed</span></code></pre>
+</section>
+
+<!-- LU 9 -->
+<section id="lu9">
+  <div class="num">LU 9</div>
+  <h2>While loops</h2>
+  <p>Use <code>while</code> when you do not know in advance how many times to repeat. The condition is checked before each pass.</p>
+<pre><code><span class="k">while</span> (condition) {
+    <span class="c">// body: must eventually make the condition false</span>
+}
+
+<span class="k">int</span> count = 1;
+<span class="k">while</span> (count &lt;= 5) {
+    System.out.print(count + " ");
+    count++;                         <span class="c">// without this, the loop never ends</span>
+}</code></pre>
+
+  <h3>Conditions that terminate a loop</h3>
+<pre><code><span class="c">// 1. Sentinel value: stop when a special value is entered</span>
+<span class="k">int</span> sum = 0;
+System.out.print("Enter a number (-1 to stop): ");
+<span class="k">int</span> num = sc.nextInt();
+<span class="k">while</span> (num != -1) {
+    sum += num;
+    System.out.print("Enter a number (-1 to stop): ");
+    num = sc.nextInt();
+}
+System.out.println("Sum: " + sum);
+
+<span class="c">// 2. Input validation: repeat until valid</span>
+System.out.print("Enter a mark (0-100): ");
+<span class="k">int</span> mark = sc.nextInt();
+<span class="k">while</span> (mark &lt; 0 || mark &gt; 100) {
+    System.out.print("Invalid. Enter a mark (0-100): ");
+    mark = sc.nextInt();
+}
+
+<span class="c">// 3. Boolean flag</span>
+<span class="k">boolean</span> found = <span class="k">false</span>;
+<span class="k">int</span> i = 0;
+<span class="k">while</span> (!found &amp;&amp; i &lt; word.length()) {
+    <span class="k">if</span> (word.charAt(i) == 'x') found = <span class="k">true</span>;
+    i++;
+}
+
+<span class="c">// 4. Calculation reaches a target</span>
+<span class="k">double</span> balance = 1000;
+<span class="k">int</span> years = 0;
+<span class="k">while</span> (balance &lt; 2000) {
+    balance *= 1.08;                 <span class="c">// 8% interest per year</span>
+    years++;
+}
+System.out.println("Doubles in " + years + " years");   <span class="c">// 10</span>
+
+<span class="c">// 5. Digit processing</span>
+<span class="k">int</span> n = 4729, digitSum = 0;
+<span class="k">while</span> (n &gt; 0) {
+    digitSum += n % 10;
+    n /= 10;
+}
+System.out.println(digitSum);        <span class="c">// 22</span>
+
+<span class="c">// 6. Guessing game with Random</span>
+<span class="k">int</span> secret = <span class="k">new</span> Random().nextInt(100) + 1;
+<span class="k">int</span> guess = 0, tries = 0;
+<span class="k">while</span> (guess != secret) {
+    System.out.print("Guess (1-100): ");
+    guess = sc.nextInt();
+    tries++;
+    <span class="k">if</span> (guess &lt; secret) System.out.println("Higher");
+    <span class="k">else if</span> (guess &gt; secret) System.out.println("Lower");
+}
+System.out.println("Correct in " + tries + " tries");</code></pre>
+
+  <h3>do-while</h3>
+  <p>The body runs at least once, because the condition is checked at the end. Ideal for menus.</p>
+<pre><code><span class="k">int</span> choice;
+<span class="k">do</span> {
+    System.out.println("1. Play  2. Scores  0. Exit");
+    choice = sc.nextInt();
+} <span class="k">while</span> (choice != 0);</code></pre>
+
+  <div class="tbl"><table>
+    <tr><th></th><th>for</th><th>while</th><th>do-while</th></tr>
+    <tr><td>Use when</td><td>Number of repeats is known</td><td>Repeats depend on a condition</td><td>Must run at least once</td></tr>
+    <tr><td>Condition checked</td><td>Before</td><td>Before</td><td>After</td></tr>
+    <tr><td>Minimum runs</td><td>0</td><td>0</td><td>1</td></tr>
+  </table></div>
+  <div class="note"><b>Infinite loops</b>If nothing inside the loop changes the variable in the condition, the loop never stops. Check that every while loop updates its control variable. <code>break</code> exits a loop immediately; <code>continue</code> skips to the next pass.</div>
+</section>
+
+<!-- LU 10 -->
+<section id="lu10">
+  <div class="num">LU 10</div>
+  <h2>Nested loops</h2>
+  <p>A loop inside another loop. For every single pass of the outer loop, the inner loop runs completely. Use them for anything with rows and columns: patterns, tables, grids, or comparing every item with every other item.</p>
+<pre><code><span class="k">for</span> (<span class="k">int</span> row = 1; row &lt;= 3; row++) {          <span class="c">// outer: rows</span>
+    <span class="k">for</span> (<span class="k">int</span> col = 1; col &lt;= 4; col++) {      <span class="c">// inner: columns</span>
+        System.out.print("* ");
+    }
+    System.out.println();                         <span class="c">// new line after each row</span>
+}</code></pre>
+<pre class="out"><code>* * * *
+* * * *
+* * * *</code></pre>
+  <p>Total inner executions = outer count &times; inner count. Here 3 &times; 4 = 12.</p>
+
+  <h3>Triangle patterns</h3>
+<pre><code><span class="c">// Right triangle: inner loop depends on the outer variable</span>
+<span class="k">for</span> (<span class="k">int</span> i = 1; i &lt;= 4; i++) {
+    <span class="k">for</span> (<span class="k">int</span> j = 1; j &lt;= i; j++) {
+        System.out.print(j);
+    }
+    System.out.println();
+}</code></pre>
+<pre class="out"><code>1
+12
+123
+1234</code></pre>
+<pre><code><span class="c">// Upside down</span>
+<span class="k">for</span> (<span class="k">int</span> i = 4; i &gt;= 1; i--) {
+    <span class="k">for</span> (<span class="k">int</span> j = 1; j &lt;= i; j++) System.out.print("#");
+    System.out.println();
+}
+
+<span class="c">// Centred pyramid: spaces, then stars</span>
+<span class="k">int</span> h = 4;
+<span class="k">for</span> (<span class="k">int</span> i = 1; i &lt;= h; i++) {
+    <span class="k">for</span> (<span class="k">int</span> s = 1; s &lt;= h - i; s++) System.out.print(" ");
+    <span class="k">for</span> (<span class="k">int</span> k = 1; k &lt;= 2 * i - 1; k++) System.out.print("*");
+    System.out.println();
+}</code></pre>
+<pre class="out"><code>####
+###
+##
+#
+   *
+  ***
+ *****
+*******</code></pre>
+
+  <h3>Multiplication table</h3>
+<pre><code><span class="k">for</span> (<span class="k">int</span> i = 1; i &lt;= 5; i++) {
+    <span class="k">for</span> (<span class="k">int</span> j = 1; j &lt;= 5; j++) {
+        System.out.printf("%4d", i * j);
+    }
+    System.out.println();
+}</code></pre>
+<pre class="out"><code>   1   2   3   4   5
+   2   4   6   8  10
+   3   6   9  12  15
+   4   8  12  16  20
+   5  10  15  20  25</code></pre>
+
+  <h3>Prime numbers from 2 to 50</h3>
+<pre><code><span class="k">for</span> (<span class="k">int</span> n = 2; n &lt;= 50; n++) {
+    <span class="k">boolean</span> isPrime = <span class="k">true</span>;
+    <span class="k">int</span> d = 2;
+    <span class="k">while</span> (d &lt;= Math.sqrt(n) &amp;&amp; isPrime) {     <span class="c">// a while loop nested in a for</span>
+        <span class="k">if</span> (n % d == 0) isPrime = <span class="k">false</span>;
+        d++;
+    }
+    <span class="k">if</span> (isPrime) System.out.print(n + " ");
+}</code></pre>
+<pre class="out"><code>2 3 5 7 11 13 17 19 23 29 31 37 41 43 47</code></pre>
+  <div class="note"><b>Tracing tip</b>When asked for the output of nested loops, draw a trace table with a column for each loop variable and one for the output. Change the inner variable on every row; change the outer one only when the inner loop finishes.</div>
+</section>
+
+<!-- LU 11 -->
+<section id="lu11">
+  <div class="num">LU 11</div>
+  <h2>Methods: separating main from the rest of the code</h2>
+  <p>Instead of writing everything inside <code>main</code>, break the program into small methods that each do one job. <code>main</code> then reads like a list of steps. This is easier to read, test and reuse, and it earns marks for structure.</p>
+
+  <h3>Method structure</h3>
+<pre><code><span class="c">// access  static  returnType  name(parameters)</span>
+<span class="k">public static double</span> calcAverage(<span class="k">int</span> total, <span class="k">int</span> count) {
+    <span class="k">return</span> (<span class="k">double</span>) total / count;
+}</code></pre>
+  <div class="tbl"><table>
+    <tr><th>Kind</th><th>Return type</th><th>Called as</th></tr>
+    <tr><td>void method (procedure)</td><td><code>void</code>, returns nothing</td><td><code>showMenu();</code> on its own line</td></tr>
+    <tr><td>Return method (function)</td><td><code>int</code>, <code>double</code>, <code>String</code>, <code>boolean</code>...</td><td><code>double avg = calcAverage(t, n);</code></td></tr>
+  </table></div>
+  <ul class="plain">
+    <li><b>Parameters</b> are the variables in the method heading. <b>Arguments</b> are the values you pass in when calling it.</li>
+    <li>Arguments must match the parameters in number, type and order.</li>
+    <li>Variables declared inside a method are local: other methods cannot see them.</li>
+    <li>A return method must <code>return</code> a value of its type on every path.</li>
+    <li>Methods called from <code>static main</code> must also be <code>static</code> (or be called on an object).</li>
+  </ul>
+
+  <h3>Before: everything in main</h3>
+<pre><code><span class="k">public static void</span> main(String[] args) {
+    Scanner sc = <span class="k">new</span> Scanner(System.in);
+    System.out.print("Enter mark: ");
+    <span class="k">int</span> m = sc.nextInt();
+    <span class="k">while</span> (m &lt; 0 || m &gt; 100) { System.out.print("Invalid: "); m = sc.nextInt(); }
+    String sym;
+    <span class="k">if</span> (m &gt;= 80) sym = "A"; <span class="k">else if</span> (m &gt;= 70) sym = "B";
+    <span class="k">else if</span> (m &gt;= 60) sym = "C"; <span class="k">else if</span> (m &gt;= 50) sym = "D"; <span class="k">else</span> sym = "F";
+    System.out.println("Symbol: " + sym);
+}</code></pre>
+
+  <h3>After: separated into methods</h3>
+<pre><code><span class="k">import</span> java.util.Scanner;
+
+<span class="k">public class</span> Results {
+    <span class="k">static</span> Scanner sc = <span class="k">new</span> Scanner(System.in);   <span class="c">// shared by all methods</span>
+
+    <span class="k">public static void</span> main(String[] args) {
+        <span class="k">int</span> mark = getValidMark();
+        String symbol = getSymbol(mark);
+        displayResult(mark, symbol);
+    }
+
+    <span class="c">// Return method: reads and validates input</span>
+    <span class="k">public static int</span> getValidMark() {
+        System.out.print("Enter mark (0-100): ");
+        <span class="k">int</span> m = sc.nextInt();
+        <span class="k">while</span> (m &lt; 0 || m &gt; 100) {
+            System.out.print("Invalid. Try again: ");
+            m = sc.nextInt();
+        }
+        <span class="k">return</span> m;
+    }
+
+    <span class="c">// Return method: processing only, no input or output</span>
+    <span class="k">public static</span> String getSymbol(<span class="k">int</span> mark) {
+        <span class="k">if</span> (mark &gt;= 80) <span class="k">return</span> "A";
+        <span class="k">if</span> (mark &gt;= 70) <span class="k">return</span> "B";
+        <span class="k">if</span> (mark &gt;= 60) <span class="k">return</span> "C";
+        <span class="k">if</span> (mark &gt;= 50) <span class="k">return</span> "D";
+        <span class="k">return</span> "F";
+    }
+
+    <span class="c">// Void method: output only</span>
+    <span class="k">public static void</span> displayResult(<span class="k">int</span> mark, String symbol) {
+        System.out.println("Mark: " + mark + "%  Symbol: " + symbol);
+    }
+}</code></pre>
+<pre class="out"><code>Enter mark (0-100): 120
+Invalid. Try again: 74
+Mark: 74%  Symbol: B</code></pre>
+
+  <h3>Methods in a separate class</h3>
+  <p>Often the exam gives you an object class (LU 6) and a driver class that holds <code>main</code>. The driver creates objects and calls their methods.</p>
+<pre><code><span class="c">// File: Rectangle.java</span>
+<span class="k">public class</span> Rectangle {
+    <span class="k">private double</span> length, width;
+    <span class="k">public</span> Rectangle(<span class="k">double</span> l, <span class="k">double</span> w) { length = l; width = w; }
+    <span class="k">public double</span> area()      { <span class="k">return</span> length * width; }
+    <span class="k">public double</span> perimeter() { <span class="k">return</span> 2 * (length + width); }
+}
+
+<span class="c">// File: RectangleDriver.java</span>
+<span class="k">public class</span> RectangleDriver {
+    <span class="k">public static void</span> main(String[] args) {
+        Rectangle r = <span class="k">new</span> Rectangle(5, 3);
+        System.out.println("Area: " + r.area());            <span class="c">// 15.0</span>
+        System.out.println("Perimeter: " + r.perimeter());  <span class="c">// 16.0</span>
+    }
+}</code></pre>
+</section>
+
+<!-- LU 12 -->
+<section id="lu12">
+  <div class="num">LU 12</div>
+  <h2>SQL <span class="weight">25% of marks</span></h2>
+  <p>SQL (Structured Query Language) is used to ask a database questions and change its data. Your queries are marked on whether they return exactly the right rows and columns, so read every question carefully.</p>
+
+  <h3>Structure of the data</h3>
+  <ul class="plain">
+    <li>A <b>database</b> holds one or more <b>tables</b>.</li>
+    <li>A table is made of <b>fields</b> (columns) and <b>records</b> (rows).</li>
+    <li>The <b>primary key</b> uniquely identifies each record, for example <code>LearnerID</code>. It may not repeat or be empty.</li>
+    <li>A <b>foreign key</b> is a field in one table that refers to the primary key in another table, linking them.</li>
+    <li>Each field has a data type: text, number (integer or real), date/time, boolean (yes/no), currency.</li>
+  </ul>
+
+  <p>All examples below use these two tables.</p>
+  <p><b>tblLearners</b></p>
+  <div class="tbl"><table>
+    <tr><th>LearnerID (PK)</th><th>FirstName</th><th>Surname</th><th>Gender</th><th>Grade</th><th>DOB</th><th>Mark</th><th>ClassID (FK)</th></tr>
+    <tr><td>1</td><td>Thabo</td><td>Mokoena</td><td>M</td><td>11</td><td>2009-03-14</td><td>78</td><td>C1</td></tr>
+    <tr><td>2</td><td>Ayesha</td><td>Patel</td><td>F</td><td>11</td><td>2009-07-02</td><td>91</td><td>C1</td></tr>
+    <tr><td>3</td><td>Pieter</td><td>van Wyk</td><td>M</td><td>10</td><td>2010-01-23</td><td>45</td><td>C2</td></tr>
+    <tr><td>4</td><td>Naledi</td><td>Dlamini</td><td>F</td><td>10</td><td>2010-11-09</td><td>67</td><td>C2</td></tr>
+    <tr><td>5</td><td>Sipho</td><td>Nkosi</td><td>M</td><td>11</td><td>2008-12-30</td><td>52</td><td>C3</td></tr>
+  </table></div>
+  <p><b>tblClasses</b></p>
+  <div class="tbl"><table>
+    <tr><th>ClassID (PK)</th><th>Teacher</th><th>Room</th></tr>
+    <tr><td>C1</td><td>Mrs Botha</td><td>12</td></tr>
+    <tr><td>C2</td><td>Mr Khumalo</td><td>7</td></tr>
+    <tr><td>C3</td><td>Ms Naidoo</td><td>15</td></tr>
+  </table></div>
+
+  <h3>Query structure</h3>
+  <p>The clauses must appear in this order. Only <code>SELECT</code> and <code>FROM</code> are required.</p>
+<pre><code><span class="k">SELECT</span>   fields                <span class="c">-- which columns</span>
+<span class="k">FROM</span>     table                 <span class="c">-- which table</span>
+<span class="k">WHERE</span>    condition             <span class="c">-- which rows (before grouping)</span>
+<span class="k">GROUP BY</span> field                 <span class="c">-- combine rows into groups</span>
+<span class="k">HAVING</span>   condition             <span class="c">-- which groups (after grouping)</span>
+<span class="k">ORDER BY</span> field <span class="k">ASC</span> | <span class="k">DESC</span>    <span class="c">-- sort the result</span></code></pre>
+
+  <h3>SELECT and FROM</h3>
+<pre><code><span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners;                         <span class="c">-- all fields, all records</span>
+<span class="k">SELECT</span> FirstName, Surname, Mark <span class="k">FROM</span> tblLearners;   <span class="c">-- chosen fields only</span>
+<span class="k">SELECT DISTINCT</span> Grade <span class="k">FROM</span> tblLearners;             <span class="c">-- no duplicates: 11, 10</span></code></pre>
+
+  <h3>WHERE: filtering records</h3>
+<pre><code><span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> Grade = 11;
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> Gender = 'F';                  <span class="c">-- text in quotes</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> Mark &gt;= 50 <span class="k">AND</span> Grade = 10;
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> Mark &lt; 50 <span class="k">OR</span> Mark &gt; 90;
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> <span class="k">NOT</span> Gender = 'M';
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> Mark <span class="k">BETWEEN</span> 60 <span class="k">AND</span> 80;        <span class="c">-- inclusive</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> ClassID <span class="k">IN</span> ('C1', 'C3');
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> ClassID <span class="k">IS NULL</span>;               <span class="c">-- empty field</span></code></pre>
+  <div class="tbl"><table>
+    <tr><th>Operator</th><th>Meaning</th></tr>
+    <tr><td><code>=  &lt;&gt;  &lt;  &gt;  &lt;=  &gt;=</code></td><td>Comparisons. <code>&lt;&gt;</code> means not equal</td></tr>
+    <tr><td><code>AND  OR  NOT</code></td><td>Combine conditions</td></tr>
+    <tr><td><code>BETWEEN x AND y</code></td><td>In a range, both ends included</td></tr>
+    <tr><td><code>IN (a, b, c)</code></td><td>Matches any value in the list</td></tr>
+    <tr><td><code>LIKE</code></td><td>Pattern match on text</td></tr>
+    <tr><td><code>IS NULL</code> / <code>IS NOT NULL</code></td><td>Field is empty / not empty</td></tr>
+  </table></div>
+
+  <h3>LIKE and wildcards</h3>
+<pre><code><span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> Surname <span class="k">LIKE</span> 'M%';     <span class="c">-- starts with M</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> Surname <span class="k">LIKE</span> '%i';     <span class="c">-- ends with i</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> FirstName <span class="k">LIKE</span> '%h%'; <span class="c">-- contains h</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> FirstName <span class="k">LIKE</span> '_a%'; <span class="c">-- second letter is a</span></code></pre>
+  <div class="note"><b>Wildcards differ by program</b>Standard SQL and Java database connections use <code>%</code> (any number of characters) and <code>_</code> (exactly one). MS Access uses <code>*</code> and <code>?</code>, and puts dates between hashes: <code>#2010/01/23#</code>. Use whichever your exam software expects.</div>
+
+  <h3>ORDER BY: sorting</h3>
+<pre><code><span class="k">SELECT</span> FirstName, Mark <span class="k">FROM</span> tblLearners <span class="k">ORDER BY</span> Mark <span class="k">DESC</span>;         <span class="c">-- highest first</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">ORDER BY</span> Grade <span class="k">ASC</span>, Surname <span class="k">ASC</span>;          <span class="c">-- by grade, then surname</span></code></pre>
+  <p><code>ASC</code> (A to Z, smallest first) is the default.</p>
+
+  <h3>Calculated fields and aliases (AS)</h3>
+<pre><code><span class="k">SELECT</span> FirstName, Mark, Mark * 1.1 <span class="k">AS</span> AdjustedMark <span class="k">FROM</span> tblLearners;
+<span class="k">SELECT</span> FirstName &amp; ' ' &amp; Surname <span class="k">AS</span> FullName <span class="k">FROM</span> tblLearners;   <span class="c">-- Access joins text with &amp;</span>
+<span class="k">SELECT</span> CONCAT(FirstName, ' ', Surname) <span class="k">AS</span> FullName <span class="k">FROM</span> tblLearners; <span class="c">-- MySQL style</span>
+<span class="k">SELECT</span> FirstName, ROUND(Mark / 100 * 150, 1) <span class="k">AS</span> OutOf150 <span class="k">FROM</span> tblLearners;</code></pre>
+
+  <h3>Aggregate functions</h3>
+<pre><code><span class="k">SELECT</span> COUNT(*) <span class="k">AS</span> NumLearners <span class="k">FROM</span> tblLearners;          <span class="c">-- 5</span>
+<span class="k">SELECT</span> AVG(Mark) <span class="k">AS</span> AverageMark <span class="k">FROM</span> tblLearners;         <span class="c">-- 66.6</span>
+<span class="k">SELECT</span> SUM(Mark) <span class="k">AS</span> Total <span class="k">FROM</span> tblLearners;               <span class="c">-- 333</span>
+<span class="k">SELECT</span> MAX(Mark) <span class="k">AS</span> Highest, MIN(Mark) <span class="k">AS</span> Lowest <span class="k">FROM</span> tblLearners;  <span class="c">-- 91, 45</span>
+<span class="k">SELECT</span> COUNT(*) <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> Mark &lt; 50;          <span class="c">-- 1</span></code></pre>
+
+  <h3>GROUP BY and HAVING</h3>
+  <p><code>GROUP BY</code> makes one result row per group. Every field in <code>SELECT</code> that is not inside an aggregate must appear in <code>GROUP BY</code>.</p>
+<pre><code><span class="k">SELECT</span> Grade, COUNT(*) <span class="k">AS</span> Learners, AVG(Mark) <span class="k">AS</span> Average
+<span class="k">FROM</span> tblLearners
+<span class="k">GROUP BY</span> Grade;</code></pre>
+<pre class="out"><code>Grade | Learners | Average
+10    | 2        | 56.0
+11    | 3        | 73.67</code></pre>
+<pre><code><span class="c">-- Only groups with an average above 60</span>
+<span class="k">SELECT</span> Grade, AVG(Mark) <span class="k">AS</span> Average
+<span class="k">FROM</span> tblLearners
+<span class="k">GROUP BY</span> Grade
+<span class="k">HAVING</span> AVG(Mark) &gt; 60;
+
+<span class="c">-- Count of boys and girls in Grade 11</span>
+<span class="k">SELECT</span> Gender, COUNT(*) <span class="k">AS</span> Total
+<span class="k">FROM</span> tblLearners
+<span class="k">WHERE</span> Grade = 11
+<span class="k">GROUP BY</span> Gender;</code></pre>
+  <div class="note"><b>WHERE vs HAVING</b><code>WHERE</code> filters individual records before grouping and cannot use aggregates. <code>HAVING</code> filters groups after grouping and is where conditions like <code>COUNT(*) &gt; 2</code> or <code>AVG(Mark) &gt; 60</code> go.</div>
+
+  <h3>Date and text functions</h3>
+<pre><code><span class="k">SELECT</span> FirstName, YEAR(DOB) <span class="k">AS</span> BirthYear <span class="k">FROM</span> tblLearners;
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> MONTH(DOB) = 12;           <span class="c">-- born in December</span>
+<span class="k">SELECT</span> * <span class="k">FROM</span> tblLearners <span class="k">WHERE</span> DOB &lt; '2010-01-01';
+<span class="k">SELECT</span> FirstName, 2026 - YEAR(DOB) <span class="k">AS</span> Age <span class="k">FROM</span> tblLearners;
+<span class="k">SELECT</span> UCASE(Surname), LEN(FirstName) <span class="k">FROM</span> tblLearners;     <span class="c">-- Access: UCASE, LEN</span>
+<span class="k">SELECT</span> LEFT(FirstName, 1) &amp; '. ' &amp; Surname <span class="k">AS</span> Initials <span class="k">FROM</span> tblLearners;  <span class="c">-- T. Mokoena</span></code></pre>
+
+  <h3>Joining two tables</h3>
+  <p>Link tables where the foreign key equals the primary key, so you can show fields from both.</p>
+<pre><code><span class="c">-- Using WHERE</span>
+<span class="k">SELECT</span> tblLearners.FirstName, tblClasses.Teacher, tblClasses.Room
+<span class="k">FROM</span> tblLearners, tblClasses
+<span class="k">WHERE</span> tblLearners.ClassID = tblClasses.ClassID;
+
+<span class="c">-- Using INNER JOIN (same result)</span>
+<span class="k">SELECT</span> L.FirstName, C.Teacher
+<span class="k">FROM</span> tblLearners L <span class="k">INNER JOIN</span> tblClasses C <span class="k">ON</span> L.ClassID = C.ClassID
+<span class="k">WHERE</span> C.Teacher = 'Mr Khumalo';</code></pre>
+<pre class="out"><code>FirstName | Teacher
+Pieter    | Mr Khumalo
+Naledi    | Mr Khumalo</code></pre>
+
+  <h3>Manipulating data</h3>
+<pre><code><span class="c">-- INSERT: add a new record</span>
+<span class="k">INSERT INTO</span> tblLearners (LearnerID, FirstName, Surname, Gender, Grade, DOB, Mark, ClassID)
+<span class="k">VALUES</span> (6, 'Zanele', 'Mthembu', 'F', 10, '2010-05-18', 83, 'C2');
+
+<span class="c">-- UPDATE: change existing records</span>
+<span class="k">UPDATE</span> tblLearners
+<span class="k">SET</span> Mark = 55
+<span class="k">WHERE</span> LearnerID = 3;
+
+<span class="k">UPDATE</span> tblLearners
+<span class="k">SET</span> Mark = Mark + 5               <span class="c">-- add 5 to every Grade 10 mark</span>
+<span class="k">WHERE</span> Grade = 10;
+
+<span class="c">-- DELETE: remove records</span>
+<span class="k">DELETE FROM</span> tblLearners
+<span class="k">WHERE</span> Mark &lt; 30;</code></pre>
+  <div class="note"><b>Always use WHERE with UPDATE and DELETE</b>Without a <code>WHERE</code> clause, <code>UPDATE</code> changes every record and <code>DELETE FROM tblLearners;</code> empties the whole table.</div>
+
+  <h3>Subquery</h3>
+<pre><code><span class="c">-- Learners who scored above the average</span>
+<span class="k">SELECT</span> FirstName, Mark
+<span class="k">FROM</span> tblLearners
+<span class="k">WHERE</span> Mark &gt; (<span class="k">SELECT</span> AVG(Mark) <span class="k">FROM</span> tblLearners);</code></pre>
+
+  <h3>Typical exam questions</h3>
+  <div class="tbl"><table>
+    <tr><th>Question</th><th>Query</th></tr>
+    <tr><td>List all female learners alphabetically by surname</td><td><code>SELECT * FROM tblLearners WHERE Gender = 'F' ORDER BY Surname;</code></td></tr>
+    <tr><td>Show the name and mark of the top learner</td><td><code>SELECT FirstName, Mark FROM tblLearners WHERE Mark = (SELECT MAX(Mark) FROM tblLearners);</code></td></tr>
+    <tr><td>How many learners failed?</td><td><code>SELECT COUNT(*) AS Failed FROM tblLearners WHERE Mark &lt; 50;</code></td></tr>
+    <tr><td>Average mark per class, rounded to 1 decimal</td><td><code>SELECT ClassID, ROUND(AVG(Mark), 1) AS Avg FROM tblLearners GROUP BY ClassID;</code></td></tr>
+    <tr><td>Learners whose surname starts with D or N</td><td><code>SELECT * FROM tblLearners WHERE Surname LIKE 'D%' OR Surname LIKE 'N%';</code></td></tr>
+    <tr><td>Move Sipho to class C1</td><td><code>UPDATE tblLearners SET ClassID = 'C1' WHERE FirstName = 'Sipho';</code></td></tr>
+  </table></div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="practice">
+  <div class="num">BEFORE THE EXAM</div>
+  <h2>Exam checklist</h2>
+  <div class="tbl"><table>
+    <tr><th>Mistake</th><th>Fix</th></tr>
+    <tr><td>Missing <code>import java.util.Scanner;</code> or <code>Random</code></td><td>Add imports at the top of the file</td></tr>
+    <tr><td>Comparing Strings with <code>==</code></td><td>Use <code>.equals()</code> or <code>.equalsIgnoreCase()</code></td></tr>
+    <tr><td><code>nextLine()</code> skipped after <code>nextInt()</code></td><td>Add an extra <code>sc.nextLine();</code></td></tr>
+    <tr><td>Average comes out as a whole number</td><td>Cast: <code>(double) total / count</code></td></tr>
+    <tr><td>Missing <code>break</code> in switch</td><td>End every case with <code>break;</code></td></tr>
+    <tr><td>While loop never ends</td><td>Update the control variable inside the loop</td></tr>
+    <tr><td>Index out of range on a String</td><td>Loop with <code>i &lt; s.length()</code></td></tr>
+    <tr><td>Random range wrong</td><td><code>rand.nextInt(high - low + 1) + low</code></td></tr>
+    <tr><td>Return method has no <code>return</code> on some path</td><td>Every branch must return a value</td></tr>
+    <tr><td>SQL text without quotes</td><td><code>WHERE Gender = 'F'</code></td></tr>
+    <tr><td>Aggregate inside WHERE</td><td>Move it to <code>HAVING</code></td></tr>
+    <tr><td>UPDATE or DELETE without WHERE</td><td>Always add a condition</td></tr>
+  </table></div>
+  <ul class="plain">
+    <li>Save and compile often. Code that does not compile can still earn marks for correct parts, so comment out a broken section rather than deleting it.</li>
+    <li>Use the exact variable, method and class names given in the question.</li>
+    <li>Match the output format in the question exactly, including spacing and decimal places.</li>
+    <li>SQL is a quarter of the paper. Budget roughly 35 to 40 minutes for it.</li>
+  </ul>
+</section>
+
+<footer>IT Paper 1 Study Guide &middot; Java and SQL &middot; LU 2 to LU 12</footer>
+</main>
+</div>
+
+</body></html>
